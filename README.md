@@ -1,8 +1,9 @@
 # 포켓몬 도감 웹페이지
 
-<img src="https://github.com/user-attachments/assets/2d2b9bc0-a55f-4f0e-bb7c-149d73e69edc" width="300" height="300"/>
-링크: ([포켓몬 도감 웹페이지 바로가기](https://pokemon-dex-puce.vercel.app/))
+<img src="https://github.com/user-attachments/assets/2d2b9bc0-a55f-4f0e-bb7c-149d73e69edc" width="600" height="300"/>
 
+
+### 링크: ([포켓몬 도감 웹페이지 바로가기](https://pokemon-dex-puce.vercel.app/))
 
 포켓몬 도감 웹페이지는 6개의 포켓몬 카드를 선택하고, 각각의 포켓몬 종류와 그 정보를 확인할 수 있는 웹페이지입니다.
 
@@ -15,15 +16,15 @@
 - **React Router DOM**: 여러 페이지 간의 탐색을 위해 사용했습니다.
 
 ## 주요 기능/특징
-![image](https://github.com/user-attachments/assets/35664912-872f-41e6-8e1c-c9e020597f32)
+<img src="https://github.com/user-attachments/assets/35664912-872f-41e6-8e1c-c9e020597f32" width="600" height="300"/>
 
+<img src="https://github.com/user-attachments/assets/9a52a7d0-b676-4719-b0d6-fe275c6a2353" width="600" height="300"/>
 
 - **포켓몬 선택**: 사용자가 포켓몬을 대쉬보드에 추가할 수 있으며, 한 번 추가된 포켓몬은 다시 추가되지 못하고, 추가될 수 있는 포켓몬은 최대 6개로 제한됩니다.
 - **포켓몬 삭제**: 대쉬보드에 추가된 포켓몬을 삭제할 수 있습니다.
 - **추가/삭제/주의 알림(UI)**: 추가 및 삭제 작업이 성공적으로 완료되었을 때, 그리고 포켓몬을 추가할 수 없을 때 토스트 메시지로 사용자에게 알려줍니다.
 - **포켓몬 상세 정보 보기**: 포켓몬 카드를 클릭하면 해당 포켓몬의 상세 정보를 확인할 수 있습니다.
 - **페이지 탐색**: React Router를 사용하여 포켓몬 목록 페이지, 포켓몬 상세 페이지 간 원활한 탐색 경험을 제공합니다.
-![image](https://github.com/user-attachments/assets/9a52a7d0-b676-4719-b0d6-fe275c6a2353)
 
 ## Pokemon-dex 레포지토리의 브랜치 소개
 - **main**: 최종적으로 배포한 프로젝트 구성을 담고 있는 브랜치입니다.
