@@ -1,5 +1,5 @@
 # 포켓몬 도감 웹페이지
-[포켓몬 도감 웹페이지 링크](pokemon-dex-puce.vercel.app)
+[포켓몬 도감 웹페이지 링크]([pokemon-dex-puce.vercel.app](https://pokemon-dex-puce.vercel.app/))
 
 
 포켓몬 도감 웹페이지는 6개의 포켓몬 카드를 선택하고, 각각의 포켓몬 종류와 그 정보를 확인할 수 있는 웹페이지입니다.
