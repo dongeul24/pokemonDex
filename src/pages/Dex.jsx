@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import Background from "../components/Background";
-import { PokemonContext } from "../context/PokemonContext";
 
 const DexContainer = styled.div`
   display: flex;
@@ -13,9 +12,6 @@ const DexContainer = styled.div`
 `;
 
 const Dex = () => {
-  const { addedPokemons, addPokemon, removePokemon } =
-    useContext(PokemonContext);
-
   return (
     <Background
       background={"../images/pokemon_background_list.jpg"}
@@ -23,11 +19,8 @@ const Dex = () => {
       backgroundSize={"contain"}
     >
       <DexContainer>
-        <Dashboard
-          addedPokemons={addedPokemons}
-          removePokemon={removePokemon}
-        />
-        <PokemonList onAction={addPokemon} />
+        <Dashboard />
+        <PokemonList />
       </DexContainer>
     </Background>
   );

@@ -96,6 +96,8 @@ const PokemonDetail = () => {
     }
   };
 
+  const goBack = () => navigate(-1);
+
   return (
     <Background background={"../images/pokemon_dex_background.avif"}>
       <DetailContainer>
@@ -104,7 +106,7 @@ const PokemonDetail = () => {
         <PokemonType>{pokemon.types.join(", ")}</PokemonType>
         <PokemonDescription>{pokemon.description}</PokemonDescription>
         <ButtonArea>
-          <Button fontSize={"1rem"} onClick={() => navigate(-1)}>
+          <Button fontSize={"1rem"} onClick={goBack}>
             뒤로 가기
           </Button>
           <Button fontSize={"1rem"} onClick={handleIsAdded}>
