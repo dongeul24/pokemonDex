@@ -3,8 +3,7 @@ import styled from "styled-components";
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import Background from "../components/Background";
-
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const DexContainer = styled.div`
@@ -27,10 +26,12 @@ const Dex = () => {
       return;
     }
     setAddedPokemons([...addedPokemons, pokemon]);
+    toast.success(`${pokemon.korean_name} 포켓몬이 성공적으로 추가되었습니다!`);
   };
 
   const removePokemon = (pokemon) => {
     setAddedPokemons(addedPokemons.filter((p) => p.id !== pokemon.id));
+    toast.success(`${pokemon.korean_name} 포켓몬이 성공적으로 삭제되었습니다.`);
   };
 
   return (
@@ -45,7 +46,6 @@ const Dex = () => {
           removePokemon={removePokemon}
         />
         <PokemonList onAction={addPokemon} />
-        <ToastContainer position="top-center" autoClose={1000} />
       </DexContainer>
     </Background>
   );
