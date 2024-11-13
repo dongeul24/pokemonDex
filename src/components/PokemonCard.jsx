@@ -12,7 +12,7 @@ const Cards = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  padding: 20px;
+  padding: 30px;
   background-color: #ffffff;
   text-align: center;
   margin: 10px;
@@ -27,8 +27,8 @@ const Cards = styled.div`
 `;
 
 const PokemonImage = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 `;
 
 const PokemonName = styled.h3`

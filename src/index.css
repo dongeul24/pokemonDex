@@ -14,3 +14,10 @@ body {
   box-sizing: border-box;
   font-size: 2rem;
 }
+
+.Toastify__toast {
+  font-family: "DungGeunMo", Arial, Helvetica, sans-serif !important;
+  font-size: 1rem;
+  white-space: nowrap;
+  width: fit-content;
+}
