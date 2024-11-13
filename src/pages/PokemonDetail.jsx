@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import MOCK_DATA from "../data/MOCK_DATA";
 import Background from "../components/Background";
 import Button from "../components/Button";
-import { PokemonContext } from "../context/PokemonContext";
+import { useSelector, useDispatch } from "react-redux";
+import { addPokemon, removePokemon } from "../redux/slices/pokemonSlice";
 
 const DetailContainer = styled.div`
   display: flex;
@@ -66,9 +67,9 @@ const PokemonDescription = styled.p`
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid black; /* 커서 효과 */
   width: 100%;
 
+  border-right: 3px solid black; /* 커서 효과 */
   animation: ${typing} 2s steps(40) 0.5s 1 normal both,
     ${blink} 0.75s step-end infinite;
 `;
@@ -84,16 +85,23 @@ const ButtonArea = styled.div`
 const PokemonDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { addedPokemons, addPokemon, removePokemon } =
-    useContext(PokemonContext);
+  const dispatch = useDispatch();
+  const addedPokemons = useSelector(
+    (state) => state.pokemonReducer.addedPokemons
+  );
   const pokemon = MOCK_DATA.find((p) => p.id === parseInt(id));
   const isAdded = addedPokemons.some((p) => p.id === pokemon.id);
+
   const handleIsAdded = () => {
     if (isAdded) {
-      removePokemon(pokemon);
+      dispatch(removePokemon(pokemon));
     } else {
-      addPokemon(pokemon);
+      dispatch(addPokemon(pokemon));
     }
+  };
+
+  const goBack = () => {
+    navigate(-1);
   };
 
   return (
@@ -104,7 +112,7 @@ const PokemonDetail = () => {
         <PokemonType>{pokemon.types.join(", ")}</PokemonType>
         <PokemonDescription>{pokemon.description}</PokemonDescription>
         <ButtonArea>
-          <Button fontSize={"1rem"} onClick={() => navigate(-1)}>
+          <Button fontSize={"1rem"} onClick={goBack}>
             뒤로 가기
           </Button>
           <Button fontSize={"1rem"} onClick={handleIsAdded}>

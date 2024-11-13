@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 import pokeball from "../assets/pokeball.png";
+import { useSelector, useDispatch } from "react-redux";
+import { removePokemon } from "../redux/slices/pokemonSlice";
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -45,25 +47,32 @@ const EmptySlot = styled.div`
   justify-content: center;
 `;
 
-const Dashboard = ({ addedPokemons, removePokemon }) => (
-  <DashboardContainer>
-    <DashboardTitle>나만의 포켓몬</DashboardTitle>
-    <PokemonSlotArea>
-      {[...Array(6)].map((_, index) => {
-        const pokemon = addedPokemons[index];
-        return pokemon ? (
-          <PokemonCard
-            key={index}
-            pokemon={pokemon}
-            isSelected={true}
-            onAction={removePokemon}
-          />
-        ) : (
-          <EmptySlot key={index} />
-        );
-      })}
-    </PokemonSlotArea>
-  </DashboardContainer>
-);
+const Dashboard = () => {
+  const addedPokemons = useSelector(
+    (state) => state.pokemonReducer.addedPokemons
+  );
+  const dispatch = useDispatch();
+
+  return (
+    <DashboardContainer>
+      <DashboardTitle>나만의 포켓몬</DashboardTitle>
+      <PokemonSlotArea>
+        {[...Array(6)].map((_, index) => {
+          const pokemon = addedPokemons[index];
+          return pokemon ? (
+            <PokemonCard
+              key={index}
+              pokemon={pokemon}
+              isSelected={true}
+              onAction={() => dispatch(removePokemon(pokemon))}
+            />
+          ) : (
+            <EmptySlot key={index} />
+          );
+        })}
+      </PokemonSlotArea>
+    </DashboardContainer>
+  );
+};
 
 export default Dashboard;

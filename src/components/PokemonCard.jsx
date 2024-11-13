@@ -43,6 +43,10 @@ const PokemonNumber = styled.p`
 
 const PokemonCard = ({ pokemon, isSelected, onAction }) => {
   const navigate = useNavigate();
+  const ActionHandler = (e) => {
+    e.stopPropagation(); //카드, 버튼 이벤트 서로 영향 없게 하려고..
+    onAction(pokemon);
+  };
 
   return (
     <Cards onClick={() => navigate(`/detail/${pokemon.id}`)}>
@@ -51,13 +55,7 @@ const PokemonCard = ({ pokemon, isSelected, onAction }) => {
       <PokemonNumber>
         No. {pokemon.id.toString().padStart(3, "0")}
       </PokemonNumber>
-      <Button
-        fontSize={"15px"}
-        onClick={(e) => {
-          e.stopPropagation(); //카드, 버튼 이벤트 서로 영향 없게 하려고..
-          onAction(pokemon);
-        }}
-      >
+      <Button fontSize={"15px"} onClick={ActionHandler}>
         {isSelected ? "돌아와!!" : "가라!!"}
       </Button>
     </Cards>
